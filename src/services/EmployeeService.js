@@ -11,6 +11,19 @@ class EmployeeServices{
         return axios.get(BASE_URL + "/getAllEmp");
     }
 
+    deleteEmployee(id){
+        return axios.delete(BASE_URL + "/delEmp/"+id);
+    }
+
+    getEmployeeById(id){
+        return axios.get(BASE_URL + "/getEmp/"+id);
+    }
+
+    updateEmployee(id , employee){
+        return axios.put(BASE_URL +" /updateEmp"+id , employee)
+    }
+
+
 }
 
 export default new EmployeeServices();

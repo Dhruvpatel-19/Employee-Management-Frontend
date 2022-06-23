@@ -12,7 +12,7 @@ function AddEmployee() {
         "emailId" : "",
     });
 
-  const handleOnChanhe = (e)=>{
+  const handleOnChange = (e)=>{
     const value = e.target.value;
     setEmployee(  {   ...employee , [e.target.name] : value    }    );
   }
@@ -26,7 +26,7 @@ function AddEmployee() {
         console.log(error);
     });
 
-    console.log("AAAAAA");
+    
     //document.getElementById("myForm").reset();
     
     /*setEmployee({
@@ -38,7 +38,7 @@ function AddEmployee() {
   }
 
   const resetForm = (e) =>{
-    // e.preventDefault();
+    e.preventDefault();
     // document.getElementById("myForm").reset();
 
     e.preventDefault();
@@ -61,7 +61,7 @@ function AddEmployee() {
           First Name
         </label>
         <div className="col-sm-10">
-          <input type="text" className="form-control" name="firstName" id="firstName" value={employee.firstName} onChange={handleOnChanhe}/>
+          <input type="text" className="form-control" name="firstName" id="firstName" value={employee.firstName} onChange={handleOnChange}/>
         </div>
       </div>
 
@@ -70,7 +70,7 @@ function AddEmployee() {
           Last Name
         </label>
         <div className="col-sm-10">
-          <input type="text" className="form-control" name="lastName"  id="lastName" value={employee.lastName} onChange={handleOnChanhe}/>
+          <input type="text" className="form-control" name="lastName"  id="lastName" value={employee.lastName} onChange={handleOnChange}/>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ function AddEmployee() {
           Email
         </label>
         <div className="col-sm-10">
-          <input type="email" className="form-control" name="emailId"  id="email" value={employee.emailId}   onChange={handleOnChanhe}/>
+          <input type="email" className="form-control" name="emailId"  id="email" value={employee.emailId}   onChange={handleOnChange}/>
         </div>
       </div>
       <button type="submit" className="btn btn-success mx-2" onClick={saveEmployee}>Add Employee</button>

@@ -24,6 +24,25 @@ function EmployeeList() {
     fetchData();
   }, []);
 
+  const deleteEmployee = (e, id) => {
+    e.preventDefault();
+    // console.log("Employee deleted");
+    // EmployeeService.deleteEmployee(id).then( (res) => {
+    //   if(employees){
+    //     setEmployees( (prevElement) => {
+    //       return prevElement.filter( (employee) => employee.id !== id);
+    //     } )
+    //   }
+    // });
+    EmployeeService.deleteEmployee(id).then( (res) => {
+      if(employees){
+        setEmployees( (prevElemet) => {
+          return prevElemet.filter( (employees) => employees.id!==id);
+        } )
+      }
+    } );
+  }
+
   return (
     <div className="container">
       <div className="mt-3 col-md-12">
@@ -39,7 +58,7 @@ function EmployeeList() {
           {!loading && (
             <tbody>
               {employees.map((employee) => (
-                <Employee employee={employee} key={employee.id}/>
+                <Employee employee={employee} key={employee.id} deleteEmployee = {deleteEmployee}/>
               ))}
             </tbody>
           )}
