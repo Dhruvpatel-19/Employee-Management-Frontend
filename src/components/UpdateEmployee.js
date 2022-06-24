@@ -21,15 +21,11 @@ const UpdateEmployee = () => {
     console.log(employee);
     EmployeeService.updateEmployee(id, employee)
       .then((response) => {
-        console.log("--------------------");
         console.log(response);
-        console.log("--------------------");
         navigate("/employeeList");
       })
       .catch((error) => {
-        console.log("--------------------");
         console.log(error);
-        console.log("--------------------");
       });
   };
 
