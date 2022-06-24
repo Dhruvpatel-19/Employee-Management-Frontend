@@ -34,14 +34,14 @@ function EmployeeList() {
     //     } )
     //   }
     // });
-    EmployeeService.deleteEmployee(id).then( (res) => {
-      if(employees){
-        setEmployees( (prevElemet) => {
-          return prevElemet.filter( (employees) => employees.id!==id);
-        } )
+    EmployeeService.deleteEmployee(id).then((res) => {
+      if (employees) {
+        setEmployees((prevElemet) => {
+          return prevElemet.filter((employees) => employees.id !== id);
+        });
       }
-    } );
-  }
+    });
+  };
 
   return (
     <div className="container">
@@ -58,7 +58,11 @@ function EmployeeList() {
           {!loading && (
             <tbody>
               {employees.map((employee) => (
-                <Employee employee={employee} key={employee.id} deleteEmployee = {deleteEmployee}/>
+                <Employee
+                  employee={employee}
+                  key={employee.id}
+                  deleteEmployee={deleteEmployee}
+                />
               ))}
             </tbody>
           )}

@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { useParams , useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import EmployeeService from "../services/EmployeeService";
-
 
 const UpdateEmployee = () => {
   const { id } = useParams();
@@ -17,18 +16,22 @@ const UpdateEmployee = () => {
   });
 
   const updateEmployee = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     console.log(employee);
     EmployeeService.updateEmployee(id, employee)
       .then((response) => {
+        console.log("--------------------");
+        console.log(response);
+        console.log("--------------------");
         navigate("/employeeList");
       })
       .catch((error) => {
+        console.log("--------------------");
         console.log(error);
+        console.log("--------------------");
       });
   };
-
 
   const handleOnChange = (e) => {
     const value = e.target.value;
@@ -46,8 +49,6 @@ const UpdateEmployee = () => {
     };
     fetchData();
   }, []);
-
-
 
   return (
     <div className="mt-3 col-md-12">
@@ -101,7 +102,12 @@ const UpdateEmployee = () => {
         >
           Update
         </button>
-        <button className="btn btn-danger mx-2" onClick={() => navigate("/employeeList")}>Cancle</button>
+        <button
+          className="btn btn-danger mx-2"
+          onClick={() => navigate("/employeeList")}
+        >
+          Cancle
+        </button>
       </form>
     </div>
   );
